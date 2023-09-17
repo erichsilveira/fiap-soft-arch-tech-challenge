@@ -1,2 +1,2 @@
-# tech-challange-phase-1
+# tech-challenge-phase-1
 Pos Tech 
