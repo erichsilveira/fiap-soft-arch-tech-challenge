@@ -4,6 +4,7 @@ import com.fiap.techchallenge.adapter.in.rest.data.request.CustomerRegistrationR
 import com.fiap.techchallenge.adapter.in.rest.mapper.CustomerRestMapper;
 import com.fiap.techchallenge.application.domain.model.Customer;
 import com.fiap.techchallenge.application.port.in.customer.RegisterCustomerUseCase;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +23,10 @@ public class CustomerController {
     private final CustomerRestMapper restMapper;
 
     @PostMapping
-    ResponseEntity<Customer> register(@RequestBody CustomerRegistrationRequest registrationRequest){
-        var domainEntity = registerUseCase.registerCustomer(restMapper.toDomainEntity(registrationRequest));
+    ResponseEntity<Customer> register(
+        @RequestBody @Valid CustomerRegistrationRequest registrationRequest) {
+        var domainEntity = registerUseCase.registerCustomer(
+            restMapper.toDomainEntity(registrationRequest));
 
         return new ResponseEntity<>(domainEntity, HttpStatus.CREATED);
     }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class ProductCategoryEntityMapper {
 
     ProductCategory toDomainEntity(ProductCategoryEntity entity) {
-        return ProductCategory.builder().id(entity.getId().toString())
+        return ProductCategory.builder().id(entity.getId())
             .name(entity.getName()).description(entity.getDescription()).build();
     }
 
