@@ -1,4 +1,4 @@
-package com.fiap.techchallenge.application.domain.model.customer;
+package com.fiap.techchallenge.application.domain.model;
 
 import lombok.Builder;
 import lombok.Getter;

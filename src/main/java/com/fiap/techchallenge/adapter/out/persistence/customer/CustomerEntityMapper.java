@@ -1,19 +1,20 @@
 package com.fiap.techchallenge.adapter.out.persistence.customer;
 
-import com.fiap.techchallenge.application.domain.model.customer.Customer;
+import com.fiap.techchallenge.application.domain.model.Customer;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CustomerEntityMapper {
 
-    Customer mapToDomainEntity(CustomerEntity customerEntity) {
-        return Customer.builder().id(customerEntity.getId()).cpf(customerEntity.getCpf())
-            .name(customerEntity.getName()).email(customerEntity.getEmail()).build();
+    Customer toDomainEntity(CustomerEntity entity) {
+        return Customer.builder().id(entity.getId().toString()).cpf(entity.getCpf())
+            .name(entity.getName()).email(entity.getEmail()).build();
     }
 
-    CustomerEntity fromDomainEntity(Customer customer) {
-        return CustomerEntity.builder().id(customer.getId()).cpf(customer.getCpf())
-            .name(customer.getName()).email(
-                customer.getEmail()).build();
+    CustomerEntity fromDomainEntity(Customer domainEntity) {
+        return CustomerEntity.builder().
+            id(domainEntity.getId()).cpf(domainEntity.getCpf())
+            .name(domainEntity.getName()).email(
+                domainEntity.getEmail()).build();
     }
 }

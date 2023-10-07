@@ -1,8 +1,7 @@
 package com.fiap.techchallenge.adapter.out.persistence.customer;
 
-import com.fiap.techchallenge.application.domain.model.customer.Customer;
-import com.fiap.techchallenge.application.port.out.RegisterCustomerPort;
-import java.util.UUID;
+import com.fiap.techchallenge.application.domain.model.Customer;
+import com.fiap.techchallenge.application.port.out.customer.RegisterCustomerPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -10,18 +9,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomerPersistenceAdapter implements RegisterCustomerPort {
 
-    private final SpringDataCustomerRepository springDataCustomerRepository;
+    private final SpringDataCustomerRepository springDataRepository;
 
-    private final CustomerEntityMapper customerEntityMapper;
+    private final CustomerEntityMapper entityMapper;
 
     @Override
     public Customer registerCustomer(Customer customer) {
+        CustomerEntity customerEntity = entityMapper.fromDomainEntity(customer);
 
-        CustomerEntity customerEntity = customerEntityMapper.fromDomainEntity(customer);
-        customerEntity.setId(UUID.randomUUID().toString());
+        springDataRepository.save(customerEntity);
 
-        springDataCustomerRepository.save(customerEntity);
-
-        return customerEntityMapper.mapToDomainEntity(customerEntity);
+        return entityMapper.toDomainEntity(customerEntity);
     }
 }

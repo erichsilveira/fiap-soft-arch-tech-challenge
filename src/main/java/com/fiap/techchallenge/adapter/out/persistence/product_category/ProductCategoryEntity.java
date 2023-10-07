@@ -1,4 +1,4 @@
-package com.fiap.techchallenge.adapter.out.persistence.customer;
+package com.fiap.techchallenge.adapter.out.persistence.product_category;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,16 +16,14 @@ import org.hibernate.annotations.UuidGenerator;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerEntity {
+public class ProductCategoryEntity {
 
     @Id
     @GeneratedValue
     @UuidGenerator
     private String id;
 
-    private String cpf;
-
     private String name;
 
-    private String email;
+    private String description;
 }
