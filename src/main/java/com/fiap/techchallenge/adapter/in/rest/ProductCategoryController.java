@@ -5,6 +5,7 @@ import com.fiap.techchallenge.adapter.in.rest.mapper.ProductCategoryRestMapper;
 import com.fiap.techchallenge.application.domain.model.ProductCategory;
 import com.fiap.techchallenge.application.port.in.product_category.CreateProductCategoryUseCase;
 import com.fiap.techchallenge.application.port.in.product_category.SearchProductCategoryUseCase;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class ProductCategoryController {
 
     @PostMapping
     ResponseEntity<ProductCategory> create(
-        @RequestBody ProductCategoryCreationRequest registrationRequest) {
+        @RequestBody @Valid ProductCategoryCreationRequest registrationRequest) {
         var domainEntity = createUseCase.createProductCategory(
             restMapper.toDomainEntity(registrationRequest));
 

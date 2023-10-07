@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SpringDataProductCategoryRepository extends CrudRepository<ProductCategoryEntity, UUID> {
+public interface SpringDataProductCategoryRepository extends
+    CrudRepository<ProductCategoryEntity, UUID> {
 
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class CustomerEntityMapper {
 
     Customer toDomainEntity(CustomerEntity entity) {
-        return Customer.builder().id(entity.getId().toString()).cpf(entity.getCpf())
+        return Customer.builder().id(entity.getId()).cpf(entity.getCpf())
             .name(entity.getName()).email(entity.getEmail()).build();
     }
 
