@@ -2,8 +2,11 @@ package com.fiap.techchallenge.adapter.in.rest;
 
 import com.fiap.techchallenge.adapter.in.rest.data.request.CustomerRegistrationRequest;
 import com.fiap.techchallenge.adapter.in.rest.mapper.CustomerRestMapper;
-import com.fiap.techchallenge.application.port.in.RegisterCustomerUseCase;
+import com.fiap.techchallenge.application.domain.model.Customer;
+import com.fiap.techchallenge.application.port.in.customer.RegisterCustomerUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CustomerController {
 
-    private final RegisterCustomerUseCase registerCustomerUseCase;
+    private final RegisterCustomerUseCase registerUseCase;
 
-    private final CustomerRestMapper customerRestMapper;
+    private final CustomerRestMapper restMapper;
 
     @PostMapping
-    void registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest){
-        registerCustomerUseCase.registerCustomer(customerRestMapper.mapToDomainEntity(customerRegistrationRequest));
+    ResponseEntity<Customer> register(@RequestBody CustomerRegistrationRequest registrationRequest){
+        var domainEntity = registerUseCase.registerCustomer(restMapper.toDomainEntity(registrationRequest));
+
+        return new ResponseEntity<>(domainEntity, HttpStatus.CREATED);
     }
 }
