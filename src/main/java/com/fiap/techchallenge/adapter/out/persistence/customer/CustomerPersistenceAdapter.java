@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomerPersistenceAdapter implements RegisterCustomerPort {
 
-    private final SpringDataCustomerRepository springDataRepository;
+    private final CustomerJpaRepository springDataRepository;
 
     private final CustomerEntityMapper entityMapper;
 

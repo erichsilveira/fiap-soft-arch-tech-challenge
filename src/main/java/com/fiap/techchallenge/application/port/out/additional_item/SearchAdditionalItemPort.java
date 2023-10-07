@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface SearchAdditionalItemPort {
 
-    List<AdditionalItem> searchAdditionalItems();
+    List<AdditionalItem> searchAdditionalItems(String productCategoryId);
 }

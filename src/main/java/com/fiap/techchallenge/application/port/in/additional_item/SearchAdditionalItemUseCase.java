@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface SearchAdditionalItemUseCase {
 
-    List<AdditionalItem> searchAdditionalItems();
+    List<AdditionalItem> searchAdditionalItems(SearchAdditionalItemCommand command);
 }

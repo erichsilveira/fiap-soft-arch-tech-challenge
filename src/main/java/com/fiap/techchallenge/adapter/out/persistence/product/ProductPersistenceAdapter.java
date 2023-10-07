@@ -1,8 +1,8 @@
-package com.fiap.techchallenge.adapter.out.persistence.additional_item;
+package com.fiap.techchallenge.adapter.out.persistence.product;
 
-import com.fiap.techchallenge.application.domain.model.AdditionalItem;
-import com.fiap.techchallenge.application.port.out.additional_item.CreateAdditionalItemPort;
-import com.fiap.techchallenge.application.port.out.additional_item.SearchAdditionalItemPort;
+import com.fiap.techchallenge.application.domain.model.Product;
+import com.fiap.techchallenge.application.port.out.product.CreateProductPort;
+import com.fiap.techchallenge.application.port.out.product.SearchProductPort;
 import io.micrometer.common.util.StringUtils;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,15 +13,15 @@ import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class AdditionalItemPersistenceAdapter implements CreateAdditionalItemPort,
-    SearchAdditionalItemPort {
+public class ProductPersistenceAdapter implements CreateProductPort,
+    SearchProductPort {
 
-    private final AdditionalItemJpaRepository springDataRepository;
+    private final ProductJpaRepository springDataRepository;
 
-    private final AdditionalItemEntityMapper entityMapper;
+    private final ProductEntityMapper entityMapper;
 
     @Override
-    public AdditionalItem createAdditionalItem(AdditionalItem domainEntity) {
+    public Product createProduct(Product domainEntity) {
         var entity = entityMapper.fromDomainEntity(domainEntity);
 
         springDataRepository.save(entity);
@@ -30,8 +30,8 @@ public class AdditionalItemPersistenceAdapter implements CreateAdditionalItemPor
     }
 
     @Override
-    public List<AdditionalItem> searchAdditionalItems(String productCategoryId) {
-        var filter = AdditionalItemEntity.builder();
+    public List<Product> searchProducts(String productCategoryId) {
+        var filter = ProductEntity.builder();
 
         if (StringUtils.isNotBlank(productCategoryId)) {
             filter.productCategoryId(productCategoryId);

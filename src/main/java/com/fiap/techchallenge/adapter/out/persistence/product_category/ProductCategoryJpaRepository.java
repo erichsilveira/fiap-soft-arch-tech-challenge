@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SpringDataProductCategoryRepository extends
+public interface ProductCategoryJpaRepository extends
     CrudRepository<ProductCategoryEntity, UUID> {
 
 }
