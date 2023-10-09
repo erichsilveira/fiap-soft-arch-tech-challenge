@@ -22,4 +22,5 @@ Pos Tech FIAP project
 - Run TechChallengeApplication.java
 - Docker build still in WIP
 
-
+## Swagger
+Access [Swagger](http://localhost:8080/swagger-ui/index.html)
