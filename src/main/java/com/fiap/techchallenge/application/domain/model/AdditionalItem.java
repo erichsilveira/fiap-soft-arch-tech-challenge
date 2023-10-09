@@ -1,6 +1,7 @@
 package com.fiap.techchallenge.application.domain.model;
 
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -21,4 +22,10 @@ public class AdditionalItem {
 
     @Getter
     private final String productCategoryId;
+
+    @Getter
+    private ZonedDateTime createdAt;
+
+    @Getter
+    private ZonedDateTime updatedAt;
 }

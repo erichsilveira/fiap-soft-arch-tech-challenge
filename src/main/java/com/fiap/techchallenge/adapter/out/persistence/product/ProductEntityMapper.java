@@ -9,7 +9,8 @@ public class ProductEntityMapper {
     Product toDomainEntity(ProductEntity entity) {
         return Product.builder().id(entity.getId())
             .name(entity.getName()).description(entity.getDescription())
-            .productCategoryId(entity.getProductCategoryId()).price(entity.getPrice()).build();
+            .productCategoryId(entity.getProductCategoryId()).price(entity.getPrice())
+            .createdAt(entity.getCreatedAt()).updatedAt(entity.getUpdatedAt()).build();
     }
 
     ProductEntity fromDomainEntity(Product domainEntity) {
@@ -17,6 +18,7 @@ public class ProductEntityMapper {
             id(domainEntity.getId())
             .name(domainEntity.getName()).description(domainEntity.getDescription())
             .productCategoryId(domainEntity.getProductCategoryId()).price(
-                domainEntity.getPrice()).build();
+                domainEntity.getPrice())
+            .createdAt(domainEntity.getCreatedAt()).updatedAt(domainEntity.getUpdatedAt()).build();
     }
 }

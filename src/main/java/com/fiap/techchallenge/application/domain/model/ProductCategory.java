@@ -1,5 +1,6 @@
 package com.fiap.techchallenge.application.domain.model;
 
+import java.time.ZonedDateTime;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -14,4 +15,10 @@ public class ProductCategory {
 
     @Getter
     private final String description;
+
+    @Getter
+    private ZonedDateTime createdAt;
+
+    @Getter
+    private ZonedDateTime updatedAt;
 }
