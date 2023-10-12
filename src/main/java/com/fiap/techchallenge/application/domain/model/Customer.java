@@ -1,5 +1,6 @@
 package com.fiap.techchallenge.application.domain.model;
 
+import java.time.ZonedDateTime;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -17,4 +18,10 @@ public class Customer {
 
     @Getter
     private final String email;
+
+    @Getter
+    private ZonedDateTime createdAt;
+
+    @Getter
+    private ZonedDateTime updatedAt;
 }

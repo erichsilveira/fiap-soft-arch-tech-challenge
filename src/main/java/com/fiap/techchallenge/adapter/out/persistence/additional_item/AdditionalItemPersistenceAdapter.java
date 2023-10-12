@@ -4,12 +4,12 @@ import com.fiap.techchallenge.application.domain.model.AdditionalItem;
 import com.fiap.techchallenge.application.port.out.additional_item.CreateAdditionalItemPort;
 import com.fiap.techchallenge.application.port.out.additional_item.SearchAdditionalItemPort;
 import io.micrometer.common.util.StringUtils;
-import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Component
@@ -42,6 +42,6 @@ public class AdditionalItemPersistenceAdapter implements CreateAdditionalItemPor
 
         return entities.stream()
             .map(entityMapper::toDomainEntity)
-            .collect(Collectors.toList());
+            .toList();
     }
 }
