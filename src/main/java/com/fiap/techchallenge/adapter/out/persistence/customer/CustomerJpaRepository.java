@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CustomerJpaRepository extends CrudRepository<CustomerEntity, String> {
 
+    boolean existsByCpf(String cpf);
+
 }
