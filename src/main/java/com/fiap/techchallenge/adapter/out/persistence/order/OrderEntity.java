@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -32,8 +33,7 @@ public class OrderEntity {
     @UuidGenerator
     private String id;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<ProductEntity> products;
+    private List<String> productsId;
 
     private BigDecimal orderPrice;
 

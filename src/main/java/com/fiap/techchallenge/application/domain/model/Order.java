@@ -2,7 +2,6 @@ package com.fiap.techchallenge.application.domain.model;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -14,10 +13,9 @@ public class Order {
     private final String id;
 
     @Getter
-    private final List<Product> products;
+    private final List<String> productsId;
 
     @Getter
-    @Setter
     private BigDecimal orderPrice;
 
     @Getter

@@ -8,12 +8,10 @@ import java.util.stream.Collectors;
 @Component
 public class OrderRestMapper {
 
-    ProductRestMapper productRestMapper;
-
     public Order toDomainEntity(OrderCreationRequest restEntity) {
         return Order.builder().customerCpf(restEntity.customerCpf())
             .customerId(restEntity.customerId())
-            .products(restEntity.products().stream().map(productRestMapper::toDomainEntity)
-                .collect(Collectors.toList())).build();
+            .orderPrice(restEntity.orderPrice())
+            .productsId(restEntity.productsId()).build();
     }
 }
