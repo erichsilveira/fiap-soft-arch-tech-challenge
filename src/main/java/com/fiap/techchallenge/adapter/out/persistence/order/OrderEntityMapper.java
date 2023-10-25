@@ -1,15 +1,10 @@
 package com.fiap.techchallenge.adapter.out.persistence.order;
 
-import com.fiap.techchallenge.adapter.out.persistence.product.ProductEntityMapper;
 import com.fiap.techchallenge.application.domain.model.Order;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class OrderEntityMapper {
-
-    @Autowired
-    ProductEntityMapper productMapper;
 
     public Order toDomainEntity(OrderEntity entity) {
         return Order.builder().id(entity.getId())
