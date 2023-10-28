@@ -23,7 +23,7 @@ Pos Tech FIAP project
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## Running in docker
-- To start: `docker-compose up -d --build`
+- To start: `docker-compose up -d`
 - To stop: `docker compose down`
 - Database is maintained in volume
 
