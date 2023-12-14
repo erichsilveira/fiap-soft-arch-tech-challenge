@@ -28,18 +28,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-  project:
-    container_name: tech-challenge-project
-    depends_on:
-      - postgres
-      - localstack
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      - postgre.address=host.docker.internal
-    ports:
-      - "8080:8080"
+
 volumes:
   localstack:
   postgres_data:
