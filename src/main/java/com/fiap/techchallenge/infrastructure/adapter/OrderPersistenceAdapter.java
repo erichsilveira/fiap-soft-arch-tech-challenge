@@ -63,7 +63,7 @@ public class OrderPersistenceAdapter implements OrderRepository {
     public Order createOrder(Order order) {
         var model = OrderModel.toOrderModel(order);
 
-        model.setStatus(OrderStatus.REQUESTED);
+        model.setStatus(OrderStatus.WAITING_PAYMENT);
 
         springDataRepository.save(model);
 

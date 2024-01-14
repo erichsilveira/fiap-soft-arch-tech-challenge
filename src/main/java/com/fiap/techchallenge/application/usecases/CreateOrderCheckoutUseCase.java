@@ -2,7 +2,7 @@ package com.fiap.techchallenge.application.usecases;
 
 import com.fiap.techchallenge.domain.entity.Order;
 
-public interface CreateOrderUseCase {
+public interface CreateOrderCheckoutUseCase {
 
-    Order createOrder(Order command);
+    Order createOrderCheckout(Order command);
 }

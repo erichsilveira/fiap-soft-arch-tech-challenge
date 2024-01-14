@@ -1,10 +1,12 @@
 package com.fiap.techchallenge.infrastructure.web;
 
-import com.fiap.techchallenge.application.usecases.CreateOrderUseCase;
+import com.fiap.techchallenge.application.usecases.CreateOrderCheckoutUseCase;
 import com.fiap.techchallenge.application.usecases.SearchOrderUseCase;
+import com.fiap.techchallenge.application.usecases.SearchPaymentUseCase;
 import com.fiap.techchallenge.application.usecases.UpdateOrderUseCase;
 import com.fiap.techchallenge.domain.entity.Order;
 import com.fiap.techchallenge.domain.entity.OrderStatus;
+import com.fiap.techchallenge.domain.entity.PaymentStatus;
 import com.fiap.techchallenge.exception.ResourceNotFoundException;
 import com.fiap.techchallenge.interfaces.dto.OrderCreationRequest;
 import com.fiap.techchallenge.interfaces.dto.OrderUpdateRequest;
@@ -13,6 +15,7 @@ import com.fiap.techchallenge.interfaces.dto.SearchOrderCommand;
 import com.fiap.techchallenge.interfaces.dto.UpdateOrderCommand;
 import com.fiap.techchallenge.interfaces.mapper.OrderRestMapper;
 import jakarta.validation.Valid;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +27,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
@@ -35,7 +37,9 @@ public class OrderController {
 
     private final SearchOrderUseCase searchUseCase;
 
-    private final CreateOrderUseCase createUseCase;
+    private final CreateOrderCheckoutUseCase createUseCase;
+
+    private final SearchPaymentUseCase searchPaymentUseCase;
 
     private final OrderRestMapper restMapper;
 
@@ -73,11 +77,19 @@ public class OrderController {
     }
 
     @PostMapping
-    ResponseEntity<Order> create(
+    ResponseEntity<String> checkout(
         @RequestBody @Valid OrderCreationRequest creationRequest) {
-        var domainEntity = createUseCase.createOrder(
+        var domainEntity = createUseCase.createOrderCheckout(
             restMapper.toDomainEntity(creationRequest));
 
-        return new ResponseEntity<>(domainEntity, HttpStatus.CREATED);
+        return new ResponseEntity<>(domainEntity.getId(), HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    ResponseEntity<PaymentStatus> searchOrderPaymentStatus(
+        @RequestParam String orderId) throws ResourceNotFoundException {
+        var domainEntity = searchPaymentUseCase.searchPayment(orderId);
+
+        return ResponseEntity.ok(domainEntity.getStatus());
     }
 }
