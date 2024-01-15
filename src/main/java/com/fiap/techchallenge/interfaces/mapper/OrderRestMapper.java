@@ -8,9 +8,11 @@ import org.springframework.stereotype.Component;
 public class OrderRestMapper {
 
     public Order toDomainEntity(OrderCreationRequest restEntity) {
-        return Order.builder().customerCpf(restEntity.customerCpf())
+        return Order.builder()
+            .customerCpf(restEntity.customerCpf())
             .customerId(restEntity.customerId())
             .orderPrice(restEntity.orderPrice())
-            .productsId(restEntity.productsId()).build();
+            .productsId(restEntity.productsId())
+            .build();
     }
 }
