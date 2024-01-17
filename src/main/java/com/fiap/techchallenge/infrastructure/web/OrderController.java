@@ -4,12 +4,15 @@ import com.fiap.techchallenge.application.usecases.CreateOrderCheckoutUseCase;
 import com.fiap.techchallenge.application.usecases.SearchOrderUseCase;
 import com.fiap.techchallenge.application.usecases.SearchPaymentUseCase;
 import com.fiap.techchallenge.application.usecases.UpdateOrderUseCase;
+import com.fiap.techchallenge.application.usecases.UpdatePaymentUseCase;
 import com.fiap.techchallenge.domain.entity.Order;
 import com.fiap.techchallenge.domain.entity.OrderStatus;
+import com.fiap.techchallenge.domain.entity.Payment;
 import com.fiap.techchallenge.domain.entity.PaymentStatus;
 import com.fiap.techchallenge.exception.ResourceNotFoundException;
 import com.fiap.techchallenge.interfaces.dto.OrderCreationRequest;
 import com.fiap.techchallenge.interfaces.dto.OrderUpdateRequest;
+import com.fiap.techchallenge.interfaces.dto.PaymentWebhookUpdateRequest;
 import com.fiap.techchallenge.interfaces.dto.SearchOrderByIdCommand;
 import com.fiap.techchallenge.interfaces.dto.SearchOrderCommand;
 import com.fiap.techchallenge.interfaces.dto.UpdateOrderCommand;
@@ -40,6 +43,8 @@ public class OrderController {
     private final CreateOrderCheckoutUseCase createUseCase;
 
     private final SearchPaymentUseCase searchPaymentUseCase;
+
+    private final UpdatePaymentUseCase updatePaymentUseCase;
 
     private final OrderRestMapper restMapper;
 
@@ -85,11 +90,20 @@ public class OrderController {
         return new ResponseEntity<>(domainEntity.getId(), HttpStatus.CREATED);
     }
 
-    @GetMapping
-    ResponseEntity<PaymentStatus> searchOrderPaymentStatus(
-        @RequestParam String orderId) throws ResourceNotFoundException {
-        var domainEntity = searchPaymentUseCase.searchPayment(orderId);
+    @PostMapping("/payment")
+    ResponseEntity paymentWebhook(
+        @RequestBody @Valid PaymentWebhookUpdateRequest webhookUpdateRequest) {
+        updatePaymentUseCase.paymentWebhook(
+            webhookUpdateRequest.paymentId(), webhookUpdateRequest.success());
 
-        return ResponseEntity.ok(domainEntity.getStatus());
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/payment/{id}")
+    ResponseEntity<Payment> searchOrderPaymentStatus(
+        @PathVariable String id) throws ResourceNotFoundException {
+        var domainEntity = searchPaymentUseCase.searchPayment(id);
+
+        return ResponseEntity.ok(domainEntity);
     }
 }

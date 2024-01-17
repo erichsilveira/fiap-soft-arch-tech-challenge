@@ -1,423 +1,478 @@
 {
-  "info": {
-    "_postman_id": "c930c7ab-9f1b-4979-a336-9d78dbbb0423",
-    "name": "PosTech",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "30811264"
-  },
-  "item": [
-    {
-      "name": "ProductCategory",
-      "item": [
-        {
-          "name": "create",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"name\": \"Testando a categoria\",\n    \"description\": \"Testando a categoria\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8080/product_categories",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "product_categories"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "search",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/product_categories",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "product_categories"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Customer",
-      "item": [
-        {
-          "name": "register",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"cpf\": \"36017004840\",\n    \"name\": \"test\",\n    \"email\": \"teste\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8080/customers",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "customers"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Exists",
-          "request": {
-            "method": "HEAD",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/customers?cpf=36017004840",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "customers"
-              ],
-              "query": [
-                {
-                  "key": "cpf",
-                  "value": "36017004840"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Login",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"cpf\":\"36017004840\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8080/customers/login",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "customers",
-                "login"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "AdditionalItem",
-      "item": [
-        {
-          "name": "search",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/additional_items",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "additional_items"
-              ],
-              "query": [
-                {
-                  "key": "productCategoryId",
-                  "value": "dbec9deb-d98b-4454-8b99-ee145a730984",
-                  "disabled": true
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "create",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"name\": \"Testando o produto adicional 2\",\n    \"description\": \"Testando o produto adicional 2\",\n    \"price\": 150.0,\n    \"productCategoryId\": \"39aa2656-6b1a-4a97-93cb-20fdd3573cd3\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8080/additional_items",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "additional_items"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Product",
-      "item": [
-        {
-          "name": "search",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/products",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "products"
-              ],
-              "query": [
-                {
-                  "key": "productCategoryId",
-                  "value": "dbec9deb-d98b-4454-8b99-ee145a73098",
-                  "disabled": true
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "create",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"name\": \"Testando o produto adicional 2\",\n    \"description\": \"Testando o produto adicional 2\",\n    \"price\": 150.0,\n    \"productCategoryId\": \"39aa2656-6b1a-4a97-93cb-20fdd3573cd3\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8080/products",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "products"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "update",
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"name\": \"Testando o produto adicional 1\",\n    \"description\": \"Testando o produto adicional 2\",\n    \"price\": 150.0,\n    \"productCategoryId\": \"39aa2656-6b1a-4a97-93cb-20fdd3573cd3\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8080/products/e386665b-7f41-453d-9208-5d0ced8f1282",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "products",
-                "e386665b-7f41-453d-9208-5d0ced8f1282"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "delete",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/products/e386665b-7f41-453d-9208-5d0ced8f1282",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "products",
-                "e386665b-7f41-453d-9208-5d0ced8f1282"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Order",
-      "item": [
-        {
-          "name": "search",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/orders?cpf=63046797001",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "orders"
-              ],
-              "query": [
-                {
-                  "key": "cpf",
-                  "value": "63046797001"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "update-status",
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"status\": \"PREPARING\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8080/orders/553eeb81-0135-4eea-8b71-aa69a28c0b5b",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "orders",
-                "553eeb81-0135-4eea-8b71-aa69a28c0b5b"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "getById",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/orders/553eeb81-0135-4eea-8b71-aa69a28c0b5b",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "orders",
-                "553eeb81-0135-4eea-8b71-aa69a28c0b5b"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "create",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"productsId\": [\n    \"9bb4ffaa-45db-4a2a-b704-3e51b9707583\",\n    \"208026e0-7bcd-4958-a9d2-e4bd5c375ecb\"\n  ],\n  \"orderPrice\": 5,\n  \"customerId\": \"174a948d-e049-4e70-a882-0045e536d8b7\",\n  \"customerCpf\": \"12345678912\"\n}\n\n",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8080/orders",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "orders"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    }
-  ]
+	"info": {
+		"_postman_id": "c10024b8-4047-44d0-b5e6-c4e2cf86a950",
+		"name": "PosTech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18826024"
+	},
+	"item": [
+		{
+			"name": "ProductCategory",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Testando a categoria\",\n    \"description\": \"Testando a categoria\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product_categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product_categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product_categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product_categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf\": \"36017004840\",\n    \"name\": \"test\",\n    \"email\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exists",
+					"request": {
+						"method": "HEAD",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customers?cpf=36017004840",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "36017004840"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf\":\"36017004840\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AdditionalItem",
+			"item": [
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/additional_items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"additional_items"
+							],
+							"query": [
+								{
+									"key": "productCategoryId",
+									"value": "dbec9deb-d98b-4454-8b99-ee145a730984",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Testando o produto adicional 2\",\n    \"description\": \"Testando o produto adicional 2\",\n    \"price\": 150.0,\n    \"productCategoryId\": \"39aa2656-6b1a-4a97-93cb-20fdd3573cd3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/additional_items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"additional_items"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "productCategoryId",
+									"value": "dbec9deb-d98b-4454-8b99-ee145a73098",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Testando o produto adicional 2\",\n    \"description\": \"Testando o produto adicional 2\",\n    \"price\": 150.0,\n    \"productCategoryId\": \"39aa2656-6b1a-4a97-93cb-20fdd3573cd3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Testando o produto adicional 1\",\n    \"description\": \"Testando o produto adicional 2\",\n    \"price\": 150.0,\n    \"productCategoryId\": \"39aa2656-6b1a-4a97-93cb-20fdd3573cd3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/e386665b-7f41-453d-9208-5d0ced8f1282",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"e386665b-7f41-453d-9208-5d0ced8f1282"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/e386665b-7f41-453d-9208-5d0ced8f1282",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"e386665b-7f41-453d-9208-5d0ced8f1282"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders?cpf=63046797001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "63046797001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"PREPARING\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/553eeb81-0135-4eea-8b71-aa69a28c0b5b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"553eeb81-0135-4eea-8b71-aa69a28c0b5b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/553eeb81-0135-4eea-8b71-aa69a28c0b5b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"553eeb81-0135-4eea-8b71-aa69a28c0b5b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productsId\": [\n    \"9bb4ffaa-45db-4a2a-b704-3e51b9707583\",\n    \"208026e0-7bcd-4958-a9d2-e4bd5c375ecb\"\n  ],\n  \"orderPrice\": 5,\n  \"customerId\": \"174a948d-e049-4e70-a882-0045e536d8b7\",\n  \"customerCpf\": \"12345678912\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "webhook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"paymentId\": \"3884c3cf-5d2e-48fe-ad00-3021f1110ec9\",\n  \"success\": true\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/payment/829019b7-20e5-4435-aa3d-75e3d340e832",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"payment",
+								"829019b7-20e5-4435-aa3d-75e3d340e832"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
 }

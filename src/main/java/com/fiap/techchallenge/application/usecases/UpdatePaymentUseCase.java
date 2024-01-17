@@ -5,5 +5,7 @@ import com.fiap.techchallenge.exception.ResourceNotFoundException;
 
 public interface UpdatePaymentUseCase {
 
+    void paymentWebhook(String paymentId, boolean success);
+
     void updatePayment(String payment, PaymentStatus status) throws ResourceNotFoundException;
 }

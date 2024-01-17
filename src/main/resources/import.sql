@@ -7,3 +7,5 @@ INSERT INTO additional_items (id, name, description, price, product_category_id)
 INSERT INTO products (id, name, description, price, product_category_id) VALUES ('9bb4ffaa-45db-4a2a-b704-3e51b9707583', 'X-Salada', 'Lanche com salada', 15.00, '771eeb81-0135-4eea-8b71-aa69a28c0b4f');
 
 INSERT INTO orders (id, products_id, order_price, status, customer_id, customer_cpf) VALUES ('553eeb81-0135-4eea-8b71-aa69a28c0b5b', '{9bb4ffaa-45db-4a2a-b704-3e51b9707583}', 15.00, 0, '174a948d-e049-4e70-a882-0045e536d8b7', '63046797001');
+
+INSERT INTO payments (id, order_price, status, created_at, updated_at) VALUES ('553eeb81-0135-4eea-8b71-aa69a28c0b5b', 15.00, 'REJECTED', '2024-01-17T02:44:10.868895Z', '2024-01-17T02:44:10.868895Z');
