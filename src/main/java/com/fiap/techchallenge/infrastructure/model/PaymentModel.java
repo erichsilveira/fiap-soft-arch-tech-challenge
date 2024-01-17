@@ -3,6 +3,8 @@ package com.fiap.techchallenge.infrastructure.model;
 import com.fiap.techchallenge.domain.entity.Payment;
 import com.fiap.techchallenge.domain.entity.PaymentStatus;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -48,6 +50,7 @@ public class PaymentModel {
 
     private BigDecimal orderPrice;
 
+    @Enumerated(EnumType.STRING)
     private PaymentStatus status;
 
     @CreationTimestamp

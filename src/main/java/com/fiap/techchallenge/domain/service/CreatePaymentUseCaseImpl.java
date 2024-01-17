@@ -14,7 +14,7 @@ public class CreatePaymentUseCaseImpl implements CreatePaymentUseCase {
 
     private final PaymentRepository paymentRepository;
 
-    // just to simulate webhook
+    // only to simulate payment webhook
     private final UpdatePaymentUseCaseImpl updatePaymentUseCase;
 
     @Override
@@ -25,9 +25,13 @@ public class CreatePaymentUseCaseImpl implements CreatePaymentUseCase {
         paymentRepository.createPayment(orderId, orderPrice);
 
         // start a payment timer process to simulate a payment
+        simulateCustomerPayment(orderId);
+    }
+
+    private void simulateCustomerPayment(String orderId) {
         Thread thread = new Thread(() -> {
             try {
-                Thread.sleep(500);
+                Thread.sleep(1000);
 
                 // get random between boolean
                 boolean success = Math.random() < 0.5;
