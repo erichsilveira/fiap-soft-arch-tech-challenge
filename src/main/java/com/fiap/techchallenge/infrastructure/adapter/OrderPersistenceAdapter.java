@@ -10,6 +10,7 @@ import io.micrometer.common.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Component;
 import java.util.List;
 
@@ -32,9 +33,10 @@ public class OrderPersistenceAdapter implements OrderRepository {
         }
 
         var entities = springDataRepository.findAll(Example.of(filter.build()),
-            Sort.by(Sort.Direction.DESC, "id"));
+            Sort.by(Sort.Order.desc("status")).and(Sort.by(Sort.Order.asc("createdAt"))));
 
         return entities.stream()
+            .filter(entity -> !OrderStatus.DELIVERED.equals(entity.getStatus()))
             .map(OrderModel::toOrder).toList();
     }
 
