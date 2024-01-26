@@ -1,4 +1,4 @@
-# Tech Challenge Phase 1
+# Tech Challenge Phase 2
 Pos Tech FIAP project
 
 ## Team Members
@@ -18,9 +18,21 @@ Pos Tech FIAP project
 ### Swagger (openAPI)
 - Access [Swagger](http://localhost:8080/swagger-ui/index.html) UI
 
+### Architecture k8s Video
+- Youtube: https://www.youtube.com/watch?v=ciM-agL4_bs
+- Backup in [Google Drive](https://drive.google.com/file/d/1qIBAp-6lKyobt93ckmHtUWpvewgaAXhk/view?usp=sharing)
+
+### Architecture Diagram
+
+![image](./docs/arch.png)
+
+
 ## Dependencies
 - Open JDK 17 - Recommended: [Amazon Corretto](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html)
 - [Docker](https://docs.docker.com/get-docker/)
+
+## Running in k8s
+- Check [makefile](./makefile) for commands
 
 ## Running in docker
 - To start: `docker-compose up -d`
